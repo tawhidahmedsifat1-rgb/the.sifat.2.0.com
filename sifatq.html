@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIFAT</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom configuration for Tailwind colors and Inter font -->
+    <style>
+      /* Import Inter font for a clean, modern look */
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+      .font-inter {
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+    <script>
+      // Tailwind configuration to define custom colors
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'primary': '#EAB308', // Amber 500 for accents
+              'dark-bg': '#111827', // Main dark background
+              'dark-card': '#1F2937', // Slightly lighter dark for sections/cards
+            }
+          }
+        }
+      }
+
+      // JavaScript for smooth scrolling when clicking navigation links
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+              behavior: 'smooth'
+            });
+          });
+        });
+      });
+    </script>
+</head>
+<!-- Main body uses a dark background and white/gray text with the Inter font -->
+<body class="font-inter bg-dark-bg text-gray-100 antialiased">
+
+    <!-- Header & Navigation (Fixed at the top) -->
+    <header class="sticky top-0 z-50 bg-dark-bg/95 backdrop-blur-sm shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <!-- Logo/Name -->
+            <a href="#hero" class="text-2xl font-extrabold tracking-tight text-primary hover:text-white transition duration-300">
+                Taohid Ahmed Sifat
+            </a>
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex space-x-8 text-lg font-medium">
+                <a href="#hero" class="hover:text-primary transition duration-300 rounded-lg">Home</a>
+                <a href="#portfolio" class="hover:text-primary transition duration-300 rounded-lg">Portfolio</a>
+                <a href="#about" class="hover:text-primary transition duration-300 rounded-lg">About</a>
+                <a href="#contact" class="hover:text-primary transition duration-300 rounded-lg">Contact</a>
+            </nav>
+
+            <!-- Mobile Menu Button (Hamburger) -->
+            <button id="mobile-menu-button" class="md:hidden p-2 text-gray-400 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary rounded-lg">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden absolute w-full bg-dark-bg/95 backdrop-blur-sm py-2 shadow-lg transition-all duration-300">
+            <a href="#hero" class="block px-4 py-2 text-base font-medium text-gray-100 hover:bg-gray-800 hover:text-primary" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Home</a>
+            <a href="#portfolio" class="block px-4 py-2 text-base font-medium text-gray-100 hover:bg-gray-800 hover:text-primary" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Portfolio</a>
+            <a href="#about" class="block px-4 py-2 text-base font-medium text-gray-100 hover:bg-gray-800 hover:text-primary" onclick="document.getElementById('mobile-menu').classList.add('hidden')">About</a>
+            <a href="#contact" class="block px-4 py-2 text-base font-medium text-gray-100 hover:bg-gray-800 hover:text-primary" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative overflow-hidden pt-20 pb-28 sm:py-32 lg:pt-40 lg:pb-52">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight mb-4 text-white">
+                <span class="text-primary">Capturing</span> the Unseen Moment.
+            </h1>
+            <p class="text-lg sm:text-xl lg:text-2xl text-gray-400 max-w-3xl mx-auto mb-8">
+                Visual stories told through the lens of light, shadow, and emotion. Specializing in landscape, portraiture, and architectural photography.
+            </p>
+            <a href="#portfolio" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-dark-bg bg-primary hover:bg-amber-400 transition duration-300 shadow-xl transform hover:scale-105">
+                View Gallery
+            </a>
+        </div>
+    </section>
+
+    <!-- Portfolio/Gallery Section -->
+    <section id="portfolio" class="py-16 sm:py-24 bg-dark-card/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold tracking-tight text-center mb-12 text-white">Featured Works</h2>
+
+            <!-- Image Grid: 2 columns on mobile, 3 on tablet, 4 on desktop -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+                
+                <!-- Gallery Item 1 (Image) -->
+                <div class="rounded-xl overflow-hidden shadow-2xl group cursor-pointer transform hover:scale-[1.02] transition duration-300 relative">
+                    <img src="https://www.facebook.com/share/p/1Dc6LRyDzb/"
+                         alt="Landscape Photography"
+                         loading="lazy"
+                         class="w-full h-full object-cover aspect-video group-hover:opacity-75 transition duration-300">
+                    <!-- Category Label Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-bg/80 to-transparent p-4 flex items-end opacity-0 group-hover:opacity-100 transition duration-300">
+                        <span class="text-sm font-semibold text-primary">Landscape</span>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 (Image) -->
+                <div class="rounded-xl overflow-hidden shadow-2xl group cursor-pointer transform hover:scale-[1.02] transition duration-300 relative">
+                    <img src="https://www.facebook.com/share/p/1cZRcXNQnq/"
+                         alt="Portrait Photography"
+                         loading="lazy"
+                         class="w-full h-full object-cover aspect-video group-hover:opacity-75 transition duration-300">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-bg/80 to-transparent p-4 flex items-end opacity-0 group-hover:opacity-100 transition duration-300">
+                        <span class="text-sm font-semibold text-primary">Portrait</span>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 (Image) -->
+                <div class="rounded-xl overflow-hidden shadow-2xl group cursor-pointer transform hover:scale-[1.02] transition duration-300 relative">
+                    <img src="https://placehold.co/600x400/374151/F9FAFB?text=Architecture"
+                         alt="Architecture Photography"
+                         loading="lazy"
+                         class="w-full h-full object-cover aspect-video group-hover:opacity-75 transition duration-300">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-bg/80 to-transparent p-4 flex items-end opacity-0 group-hover:opacity-100 transition duration-300">
+                        <span class="text-sm font-semibold text-primary">Architecture</span>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 (Image) -->
+                <div class="rounded-xl overflow-hidden shadow-2xl group cursor-pointer transform hover:scale-[1.02] transition duration-300 relative">
+                    <img src="https://placehold.co/600x400/6B7280/F9FAFB?text=Abstract"
+                         alt="Abstract Photography"
+                         loading="lazy"
+                         class="w-full h-full object-cover aspect-video group-hover:opacity-75 transition duration-300">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-bg/80 to-transparent p-4 flex items-end opacity-0 group-hover:opacity-100 transition duration-300">
+                        <span class="text-sm font-semibold text-primary">Abstract</span>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5 (Image) -->
+                <div class="rounded-xl overflow-hidden shadow-2xl group cursor-pointer transform hover:scale-[1.02] transition duration-300 relative">
+                    <img src="https://placehold.co/600x400/9CA3AF/111827?text=Street"
+                         alt="Street Photography"
+                         loading="lazy"
+                         class="w-full h-full object-cover aspect-video group-hover:opacity-75 transition duration-300">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-bg/80 to-transparent p-4 flex items-end opacity-0 group-hover:opacity-100 transition duration-300">
+                        <span class="text-sm font-semibold text-primary">Street</span>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 (Image) -->
+                <div class="rounded-xl overflow-hidden shadow-2xl group cursor-pointer transform hover:scale-[1.02] transition duration-300 relative">
+                    <img src="https://placehold.co/600x400/D1D5DB/111827?text=Nature"
+                         alt="Nature Photography"
+                         loading="lazy"
+                         class="w-full h-full object-cover aspect-video group-hover:opacity-75 transition duration-300">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-bg/80 to-transparent p-4 flex items-end opacity-0 group-hover:opacity-100 transition duration-300">
+                        <span class="text-sm font-semibold text-primary">Nature</span>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 7 (Image) -->
+                <div class="hidden sm:block rounded-xl overflow-hidden shadow-2xl group cursor-pointer transform hover:scale-[1.02] transition duration-300 relative">
+                    <img src="https://placehold.co/600x400/E5E7EB/111827?text=Wildlife"
+                         alt="Wildlife Photography"
+                         loading="lazy"
+                         class="w-full h-full object-cover aspect-video group-hover:opacity-75 transition duration-300">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-bg/80 to-transparent p-4 flex items-end opacity-0 group-hover:opacity-100 transition duration-300">
+                        <span class="text-sm font-semibold text-primary">Wildlife</span>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 8 (FACEBOOK POST LINK OPTION) - এটি এখন সরাসরি একটি লিঙ্কে ক্লিক করার অপশন দেবে -->
+                <!-- নির্দেশিকা: href-এর মধ্যে আপনার Facebook Post-এর URL দিন -->
+                <a href="https://www.facebook.com/share/p/17d9oC6nBy/" target="_blank"
+                    class="hidden lg:block rounded-xl overflow-hidden shadow-2xl group cursor-pointer transform hover:scale-[1.02] transition duration-300 relative">
+                    
+                    <!-- প্লেসহোল্ডার ইমেজ যাতে দেখতে প্রফেশনাল লাগে -->
+                    <img src="https://placehold.co/600x400/F3F4F6/111827?text=Featured+Facebook+Post"
+                         alt="Featured Facebook Post"
+                         loading="lazy"
+                         class="w-full h-full object-cover aspect-video group-hover:opacity-75 transition duration-300">
+                    
+                    <!-- ক্যাটাগরি লেবেল: এখানে বল হয়েছেo এটি ক্লিক করলে পোস্ট দেখা যাবে -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-bg/80 to-transparent p-4 flex items-end opacity-0 group-hover:opacity-100 transition duration-300">
+                        <span class="text-sm font-semibold text-primary">Facebook Post (Click to View)</span>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#contact" class="inline-flex items-center justify-center px-6 py-2 border border-primary text-base font-medium rounded-full text-primary hover:bg-primary hover:text-dark-bg transition duration-300">
+                    More Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 sm:py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold tracking-tight text-white mb-6">About Anya Lens</h2>
+            <div class="bg-dark-card p-6 sm:p-10 rounded-2xl shadow-2xl">
+                <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                    Hello! I'm Sifat ....
+                    Traveling is my hobby. Wherever I travel, I keep some memories there. I have this small website to share those memories with you in the form of pictures. Thank you for visiting the website and the pictures.
+                    I am a volunteer. I am a founding member of Jagrata Youth Development Organization 
+                    <a herf="www.jydo.org">JYDO</a>
+                    
+                </p>
+                <p class="text-lg text-gray-300 leading-relaxed">
+                    I believe the best photographs are those that make you feel something. My work is characterized by dramatic contrast, rich colors, and a commitment to storytelling. Let's create something memorable together.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 sm:py-24 bg-dark-card/50">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold tracking-tight text-white mb-6">Get in Touch</h2>
+            <p class="text-lg text-gray-400 mb-8">
+                Ready to discuss a project, collaboration, or print purchase? I'd love to hear from you.
+            </p>
+
+            <div class="flex flex-col space-y-6 items-center">
+                
+                <!-- Email Link with Icon -->
+                <!-- দ্রষ্টব্য: এখানে আপনার ইমেইল আইডি দিন -->
+                <a href="tawhidahmedsifat1@gamil.com" class="flex items-center space-x-3 text-xl font-medium text-primary hover:text-amber-400 transition duration-300">
+                    <!-- Email Icon (SVG) -->
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-16 11h16a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    <span>tawhidahmedsifat1@gamil.com</span>
+                </a>
+                
+                <!-- Social Links: WhatsApp, Facebook, Instagram, Website -->
+                <div class="flex space-x-6 pt-4 text-gray-400">
+                    
+                    <!-- WhatsApp Icon -->
+                    <!-- আপনার WhatsApp লিঙ্ক পরিবর্তন করুন -->
+                    <a href="https://wa.me/message/SRJ6GPNXUVCEB1" target="_blank" class="hover:text-primary transition duration-300" title="WhatsApp">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12c0 3.197 1.252 6.136 3.328 8.356L.04 24l4.244-1.118A11.97 11.97 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm5.167 15.698c-.14-.233-.64-.543-.73-.72a1.8 1.8 0 00-.285-.347c-.097-.107-.194-.15-.29-.15c-.097 0-.17.03-.277.16c-.106.13-.393.44-.488.547c-.097.107-.19.12-.355.08c-.247-.06-.583-.223-1.107-.682c-.413-.365-1.026-.87-1.488-1.593c-.462-.722-.52-1.042-.14-1.425c.03-.042.06-.08.09-.107c.074-.08.15-.17.21-.247c.045-.058.077-.074.1-.105c.03-.04.045-.07.06-.09c.075-.12.112-.26.112-.417c0-.15-.037-.29-.074-.41c-.04-.12-.11-.27-.22-.51c-.11-.24-.22-.48-.25-.57c-.03-.09-.015-.17.022-.24a.43.43 0 01.12-.13c.09-.08.175-.16.27-.24c.095-.08.203-.17.31-.25c.107-.08.194-.12.29-.12c.097 0 .184.03.29.21c.106.18.33.82.37.91c.04.09.07.19.09.32c.03.13.01.25.01.37c0 .13-.01.27-.03.42c-.02.15-.05.29-.07.41c-.02.12-.04.22-.04.29c0 .07.01.14.04.21c.03.07.07.13.12.19c.47.66.97 1.32 1.57 1.84c.6.52 1.15.86 1.76 1.05c.18.06.33.09.46.09c.13 0 .26-.01.38-.03c.12-.02.24-.07.35-.15c.11-.08.19-.15.26-.23c.07-.08.12-.14.16-.18c.04-.04.08-.06.12-.07c.04-.01.07-.01.11-.01c.03 0 .07.01.11.01c.04.01.08.03.11.06c.03.03.06.07.09.11c.03.04.05.08.07.12c.02.04.03.07.04.11c.01.04.01.07.01.11v.43c0 .11-.01.21-.03.32c-.02.11-.06.21-.11.31c-.05.1-.11.19-.19.27c-.08.08-.17.15-.27.21c-.1.06-.21.1-.33.12c-.12.02-.25.03-.39.03c-.26 0-.54-.04-.84-.11c-.3-.07-.58-.17-.85-.31z"/></svg>
+                    </a>
+                    
+                    <!-- Facebook Icon -->
+                    <!-- আপনার Facebook লিঙ্ক পরিবর্তন করুন -->
+                    <a href="https://www.facebook.com/share/17kYrdRkEC/" target="_blank" class="hover:text-primary transition duration-300" title="Facebook">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.675 0h-21.35C.59 0 0 .59 0 1.332v21.336C0 23.41 0.59 24 1.325 24h10.375v-9.295h-3.127v-3.626h3.127V7.5c0-3.1 1.89-4.78 4.65-4.78 1.325 0 2.47.1 2.8.143v3.235h-1.924c-1.5 0-1.79.715-1.79 1.767v2.315h3.6l-.47 3.626h-3.13V24h5.51c.735 0 1.325-.59 1.325-1.332V1.332C24 .59 23.41 0 22.675 0z"/></svg>
+                    </a>
+
+                    <!-- Instagram Icon -->
+                    <!-- আপনার Instagram লিঙ্ক পরিবর্তন করুন -->
+                    <a href="https://www.instagram.com/the.sifat.2.0?igsh=MXN0dG1oOHlpNm1hcg==" target="_blank" class="hover:text-primary transition duration-300" title="Instagram">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.705.01 3.67.054 1.17.064 1.805.25 2.227.427.606.255 1.05.62 1.488 1.058.438.438.803.882 1.058 1.488.176.422.363 1.057.427 2.227.044.965.054 1.24.054 3.67s-.01 2.705-.054 3.67c-.064 1.17-.25 1.805-.427 2.227-.255.606-.62 1.05-1.058 1.488-.438.438-.882.803-1.488 1.058-.422.176-1.057.363-2.227.427-.965.044-1.24.054-3.67.054s-2.705-.01-3.67-.054c-1.17-.064-1.805-.25-2.227-.427-.606-.255-1.05-.62-1.488-1.058-.438-.438-.882-.803-1.058-1.488-.176-.422-.363-1.057-.427-2.227-.044-.965-.054-1.24-.054-3.67s.01-2.705.054-3.67c.064-1.17.25-1.805.427-2.227.255-.606.62-1.05 1.058-1.488.438-.438.882-.803 1.488-1.058.422-.176 1.057-.363 2.227-.427.965-.044 1.24-.054 3.67-.054zm0 18c-2.673 0-2.984-.01-4.04-.058-1.28-.067-2.148-.275-2.766-.529-.652-.264-1.196-.697-1.748-1.25-.553-.552-.987-1.096-1.25-1.748-.254-.618-.462-1.486-.529-2.766-.048-1.056-.058-1.367-.058-4.04s.01-2.984.058-4.04c.067-1.28.275-2.148.529-2.766.264-.652.697-1.196 1.25-1.748.552-.553 1.096-.987 1.748-1.25.618-.254 1.486-.462 2.766-.529 1.056-.048 1.367-.058 4.04-.058s2.984.01 4.04.058c1.28.067 2.148.275 2.766.529.652.264 1.196.697 1.748 1.25.553.552.987 1.096 1.25 1.748.254.618.462 1.486.529 2.766.048 1.056.058 1.367.058 4.04s-.01 2.984-.058 4.04c-.067 1.28-.275 2.148-.529 2.766-.264.652-.697 1.196-1.25 1.748-.552.553-1.096.987-1.748 1.25-.618.254-1.486.462-2.766.529-1.056.048-1.367.058-4.04.058zm0-10.106a4.04 4.04 0 110 8.08c-2.235 0-4.04-1.805-4.04-4.04s1.805-4.04 4.04-4.04zm0 2.02c-1.127 0-2.04 1.233-2.04 2.02s.913 2.02 2.04 2.02 2.04-1.233 2.04-2.02-1.233-2.02-2.04-2.02zm5.727-4.148a.933.933 0 11-1.865 0 .933.933 0 011.865 0z" clip-rule="evenodd" /></svg>
+                    </a>
+                    
+                    <!-- New Website/Globe Icon (ওয়েবসাইট রেফারেন্স) -->
+                    <!-- নির্দেশিকা: আপনার অন্য ওয়েবসাইটের URL দিন -->
+                    <a href="https://www.jydo.org" target="JYDO" class="hover:text-primary transition duration-300" title="Organization Website">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.jydo.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v2a2 2 0 002 2 2 2 0 012 2v2a2 2 0 002 2h4.555M18 10h1.445A2.957 2.957 0 0022 7.043V5.957A2.957 2.957 0 0019.445 3H18M12 22v-3m0-12V2M8 12H5m11 0h3"/></svg>
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-bg border-t border-gray-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-500">
+            &copy; Photography. All rights reserved. | Created By Sifat.
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Toggle Script -->
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden'); // Show/hide the mobile menu
+        });
+    </script>
+</body>
+</html>
+
