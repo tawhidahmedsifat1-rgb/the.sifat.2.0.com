@@ -1,1 +1,0 @@
-# the.sifat.2.0.com
